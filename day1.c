@@ -22,6 +22,7 @@ int main() {
         numbers[c] = atoi(line);
         c++;
     }
+    free(line);
     fclose(fp);
 
     /* PART 1 SOLUTION */
