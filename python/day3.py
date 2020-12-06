@@ -18,24 +18,15 @@ def main():
     print(sol_count_pt1)
 
     # PART 2
-    right_down_steps = [
-        (1, 1),
-        (3, 1),
-        (5, 1),
-        (7, 1),
-        (0.5, 2)
-    ]
-    tree_count = {
-        s: 0
-        for s in right_down_steps
-    }
+    right_down_steps = [(1, 1), (3, 1), (5, 1), (7, 1), (0.5, 2)]
+    tree_count = {s: 0 for s in right_down_steps}
     for rd_step in right_down_steps:
         r, d = rd_step
         for i, line in enumerate(input_):
             if i % d != 0:
                 # Skip lines not divisible by down step
                 continue
-            stepped_on = line[int(r*i) % line_len]
+            stepped_on = line[int(r * i) % line_len]
             if stepped_on == "#":
                 tree_count[rd_step] += 1
 

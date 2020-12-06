@@ -74,28 +74,30 @@ def is_valid_passport_pt2(passport: str) -> bool:
 def main():
     input_ = load_from_file("day4_input.txt")
 
-    delim_indexes = [0, ]
+    delim_indexes = [
+        0,
+    ]
     for i, line in enumerate(input_):
         if line == "":
             delim_indexes.append(i)
 
-    delim_indexes.append(len(input_))  # Python does not care about the boundaries in slices though lol
+    delim_indexes.append(
+        len(input_)
+    )  # Python does not care about the boundaries in slices though lol
     passports = [
-        " ".join(input_[delim_indexes[i]:delim_indexes[i + 1]]).strip()
+        " ".join(input_[delim_indexes[i] : delim_indexes[i + 1]]).strip()
         for i in range(len(delim_indexes) - 1)
     ]
 
     # PART 1
     sol_count_pt1 = sum(
-        is_valid_passport_pt1(p)
-        for p in passports
+        is_valid_passport_pt1(p) for p in passports
     )  # Oh yeaaah, gimme that sum of bools...
     print(sol_count_pt1)
 
     # PART 2
     sol_count_pt2 = sum(
-        is_valid_passport_pt1(p) and is_valid_passport_pt2(p)
-        for p in passports
+        is_valid_passport_pt1(p) and is_valid_passport_pt2(p) for p in passports
     )  # Oh yeaaah, gimme that sum of bools...
     print(sol_count_pt2)
 

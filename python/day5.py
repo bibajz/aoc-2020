@@ -18,17 +18,14 @@ def calculate_seat_id(s: str) -> int:
     s1, s2 = s[:7], s[7:]
     return seat_id_formula(
         convert_to_dec_from_alphabet(s1, {"F": 0, "B": 1}),
-        convert_to_dec_from_alphabet(s2, {"L": 0, "R": 1})
+        convert_to_dec_from_alphabet(s2, {"L": 0, "R": 1}),
     )
 
 
 def main():
     input_ = load_from_file("day5_input.txt")
 
-    seat_ids = sorted(
-        calculate_seat_id(line)
-        for line in input_
-    )
+    seat_ids = sorted(calculate_seat_id(line) for line in input_)
 
     # PART 1
     sol_pt1 = max(seat_ids)
@@ -45,6 +42,7 @@ def main():
     # Correct solutions for my input
     assert sol_pt1 == 904
     assert sol_pt2 == 669
+
 
 if __name__ == "__main__":
     main()
