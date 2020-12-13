@@ -1,0 +1,4 @@
+attrs
+cytoolz
+diophantine  # Day 13
+sympy
