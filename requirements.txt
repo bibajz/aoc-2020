@@ -1,4 +1,5 @@
 attrs
 cytoolz
 diophantine  # Day 13
+numpy
 sympy
